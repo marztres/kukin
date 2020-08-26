@@ -32,7 +32,7 @@ namespace kukin
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Deployed in azure app service!");
                 });
             });
         }
