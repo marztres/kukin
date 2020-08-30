@@ -16,8 +16,7 @@ namespace kukin
                 options.AddPolicy(name: "KukinCorsPolicy",
                     builder =>
                     {
-                        builder.WithOrigins(
-                            "https://kukin-api.azurewebsites.net/",
+                        builder.WithOrigins(                            
                             "https://kukinstorage.z19.web.core.windows.net/",
                             "http://localhost:5000")
                         .AllowAnyHeader()
