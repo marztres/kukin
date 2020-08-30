@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionService } from './shared/action.service';
 
 @Component({
   selector: 'app-action',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionComponent implements OnInit {
   title = 'kukinWeb';
-  constructor() { }
+  constructor( private recipeService: ActionService ) { }
 
   ngOnInit(): void {
+    this.recipeService.getRecipeTest();
   }
 
 }
