@@ -39,9 +39,9 @@ namespace kukin
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
-
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseSwagger();
 
