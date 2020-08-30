@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,17 +10,20 @@ namespace kukin.Controllers
     [ApiController]
     public class RecipeController : ControllerBase
     {
+        private IWebHostEnvironment _enviroment { get; }
+        
+        public RecipeController(IWebHostEnvironment env) {
+            _enviroment = env;
+        }
+
 
         [HttpGet("{recipeId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(string recipeId) {
-            List<string> recipes = new List<string>() {
-                "Recipe 1",
-                "Recipe 2",
-            };
+            
 
-            return Ok(await Task.FromResult(recipes));
+            return Ok(await Task.FromResult(_enviroment));
         }
     }
 }

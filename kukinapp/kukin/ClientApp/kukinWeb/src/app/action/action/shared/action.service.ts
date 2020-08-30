@@ -11,6 +11,6 @@ export class ActionService {
 
   getRecipeTest() {
     console.log("Action service called")
-    return this.http.get("http://localhost:5000/api/recipe/1");
+    return this.http.get("https://kukin-api.azurewebsites.net/api/recipe/2");
   }
 }
