@@ -11,7 +11,9 @@ export class ActionComponent implements OnInit {
   constructor( private recipeService: ActionService ) { }
 
   ngOnInit(): void {
-    this.recipeService.getRecipeTest();
+    const action = this.recipeService.getRecipeTest().subscribe( data => {
+      console.log(data);
+    });
   }
 
 }

@@ -10,6 +10,7 @@ export class ActionService {
 
 
   getRecipeTest() {
+    console.log("Action service called")
     return this.http.get("http://localhost:5000/api/recipe/1");
   }
 }

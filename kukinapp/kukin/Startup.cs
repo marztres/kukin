@@ -41,7 +41,7 @@ namespace kukin
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors("KukinCorsPolicy");
 
             app.UseSwagger();
 
