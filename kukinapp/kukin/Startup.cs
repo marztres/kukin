@@ -18,7 +18,7 @@ namespace kukin
                     {
                         builder.WithOrigins(                            
                             "https://kukinstorage.z19.web.core.windows.net/",
-                            "http://localhost:5000")
+                            "http://localhost:4200")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
