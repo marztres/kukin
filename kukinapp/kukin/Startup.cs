@@ -16,9 +16,12 @@ namespace kukin
                 options.AddPolicy(name: "KukinCorsPolicy",
                     builder =>
                     {
-                        builder.WithOrigins("https://kukin-api.azurewebsites.net/",                            
+                        builder.WithOrigins(
+                            "https://kukin-api.azurewebsites.net/",
+                            "https://kukinstorage.z19.web.core.windows.net/",
                             "http://localhost:5000")
-                                .WithMethods("PUT", "DELETE", "GET", "POST");
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
                     });
             });
 
