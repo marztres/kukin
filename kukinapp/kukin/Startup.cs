@@ -11,6 +11,17 @@ namespace kukin
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "KukinCorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://kukin-api.azurewebsites.net/",                            
+                            "http://localhost:5000")
+                                .WithMethods("PUT", "DELETE", "GET", "POST");
+                    });
+            });
+
             services.AddControllers()
                     .ConfigureApiBehaviorOptions(config => {
                         config.SuppressMapClientErrors = true;
@@ -25,6 +36,8 @@ namespace kukin
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors();
 
             app.UseRouting();
 
