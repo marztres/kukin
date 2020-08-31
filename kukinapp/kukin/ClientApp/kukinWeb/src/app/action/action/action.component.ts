@@ -8,11 +8,12 @@ import { ActionService } from './shared/action.service';
 })
 export class ActionComponent implements OnInit {
   title = 'kukinWeb';
+  data: string[];
   constructor( private recipeService: ActionService ) { }
 
   ngOnInit(): void {
     const action = this.recipeService.getRecipeTest().subscribe( data => {
-      console.log(data);
+      this.data = data as string[];
     });
   }
 

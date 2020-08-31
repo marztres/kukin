@@ -11,6 +11,6 @@ export class ActionService {
 
   getRecipeTest() {
     console.log("Action service called")
-    return this.http.get("https://kukin-api.azurewebsites.net/api/recipe/2");
+    return this.http.get("https://kukin-api.azurewebsites.net/api/recipe/Config");
   }
 }
