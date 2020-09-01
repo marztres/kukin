@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kukinWeb"
+    }
+  },
+  "defaultProject": "kukinWeb",
+  "cli": {
+    "analytics": false
+  }
 }
