@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace kukin.test
+namespace kukin.Tests
 {
     public class Tests
     {
