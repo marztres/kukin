@@ -12,7 +12,10 @@ namespace kukin.Tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            var testVariable1 = 28;
+            var testVariable = 54 * testVariable1;
+
+            Assert.AreEqual(testVariable, testVariable1);
         }
     }
 }
