@@ -11,6 +11,7 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('karma-junit-reporter'),
+      require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -20,8 +21,17 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/kukinWeb'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
+    },junitReporter: {
+      outputDir: 'testresults/junit',
+      outputFile: 'unit-test-result.xml',
+      useBrowserName: false
+   },coverageReporter: {
+      type : 'cobertura',
+      dir : 'testresults',
+      subdir:'coverage',
+      file: 'code-coverage.xml'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage', 'junit'],    
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
