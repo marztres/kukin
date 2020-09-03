@@ -7,12 +7,26 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\" />
-    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\Swagger\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Models\Dtos\" />
+    <Folder Include="Models\Constants\" />
     <Folder Include="Repositories\Extensions\" />
     <Folder Include="Services\Extensions\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\Exceptions\" />
+    <Folder Include="Services\Helpers\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 

@@ -11,12 +11,12 @@ namespace kukin.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ConfigurationController : ControllerBase
+    public class RecipeController : ControllerBase
     {
         private IWebHostEnvironment _enviroment { get; }
         private IConfiguration _configuration { get; }
 
-        public ConfigurationController(IWebHostEnvironment env, IConfiguration configuration)
+        public RecipeController(IWebHostEnvironment env, IConfiguration configuration)
         {
             _enviroment = env;
             _configuration = configuration;
@@ -27,8 +27,6 @@ namespace kukin.Api
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get()
         {
-
-
             return Ok(await Task.FromResult(_enviroment));
         }
 
