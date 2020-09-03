@@ -54,9 +54,16 @@ namespace kukin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}"
-                    );
+                    pattern: "Api/{controller}/{action=Index}/{id?}"
+                    );                
             });
+
+           // routes.MapRoute(
+           //"Services",
+           //"Services/{controller}/{action}/{id}",
+           // new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+           // new string[] { "CustomControllerFactory.ServiceControllers" } // Namespace
+           //);
         }
     }
 }

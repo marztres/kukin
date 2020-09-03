@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace kukin.Controllers
+namespace kukin.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RecipeController : ControllerBase
+    public class ConfigurationController : ControllerBase
     {
         private IWebHostEnvironment _enviroment { get; }
         private IConfiguration _configuration { get; }
-        
-        public RecipeController(IWebHostEnvironment env, IConfiguration configuration) {
+
+        public ConfigurationController(IWebHostEnvironment env, IConfiguration configuration)
+        {
             _enviroment = env;
             _configuration = configuration;
         }
@@ -22,8 +25,9 @@ namespace kukin.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Get() {
-            
+        public async Task<IActionResult> Get()
+        {
+
 
             return Ok(await Task.FromResult(_enviroment));
         }
