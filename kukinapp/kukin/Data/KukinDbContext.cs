@@ -12,6 +12,23 @@ namespace kukin.Data
         public KukinDbContext(DbContextOptions<KukinDbContext> options) : base(options) {        
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RecipeIngredient>()
+                .HasKey(t => new { t.IngredientId, t.RecipeId });
 
+            modelBuilder.Entity<RecipeIngredient>()
+                .HasOne(pt => pt.Recipe)
+                .WithMany(p => p.Ingredients)
+                .HasForeignKey(pt => pt.RecipeId);
+
+            modelBuilder.Entity<RecipeIngredient>()
+                .HasOne(pt => pt.Ingredient)
+                .WithMany(t => t.Recipes)
+                .HasForeignKey(pt => pt.IngredientId);
+
+
+            modelBuilder.SeedData();
+        }
     }
 }

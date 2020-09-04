@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kukin.Data.Entities
@@ -9,5 +10,6 @@ namespace kukin.Data.Entities
         public Guid IngredientId { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
+        public List<RecipeIngredient> Recipes { get; set; }
     }
 }
