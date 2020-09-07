@@ -2,16 +2,61 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 namespace kukin.Extensions
 {
+    /// <summary>
+    /// Class for configure kukin services
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds Kukin Services
+        /// </summary>
+        /// <param name="services"> Service Collection  </param>
+        /// <param name="configuration"> Configuration Service</param>
+        /// <returns></returns>
+        public static IServiceCollection AddKukinServices(this IServiceCollection services, IConfiguration configuration) {
+            services.AddKukinCors();
+            services.AddKukinControllers();
+            services.AddKukinDbContext(configuration);
+            services.AddKukinSwagger();
+            services.AddKukinTelemetry();
 
+            return services;
+        }
+
+        /// <summary>
+        /// Adds kukin Swagger
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddKukinSwagger(this IServiceCollection services) {
+            services.AddSwaggerGen(config => {
+                config.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Kukin api",
+                    Version = "v1",
+                    Description = "REST APIs "
+                });
+                
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
+            });
+
+            return services;
+        }
+
+        /// <summary>
+        /// Adds Kukin Cors Policy
+        /// </summary>
+        /// <param name="services">Service Collection </param>
+        /// <returns></returns>
         public static IServiceCollection AddKukinCors(this IServiceCollection services) {
 
             services.AddCors(options =>
@@ -34,6 +79,11 @@ namespace kukin.Extensions
             return services;
         }
 
+        /// <summary>
+        /// Adds controllers services
+        /// </summary>
+        /// <param name="services"> Service Collection</param>
+        /// <returns></returns>
         public static IServiceCollection AddKukinControllers(this IServiceCollection services)
         {
             services.AddControllers()
@@ -44,6 +94,12 @@ namespace kukin.Extensions
             return services;
         }
 
+        /// <summary>
+        /// Adds Kukin Db Context
+        /// </summary>
+        /// <param name="services">Service Collection </param>
+        /// <param name="configuration">Configuration service </param>
+        /// <returns></returns>
         public static IServiceCollection AddKukinDbContext( this IServiceCollection services, IConfiguration configuration) {
             services.AddDbContext<KukinDbContext>(context => context
                     .UseSqlServer(
@@ -53,5 +109,16 @@ namespace kukin.Extensions
             return services;
         }
 
+        /// <summary>
+        /// Adds Azure Insights Service
+        /// </summary>
+        /// <param name="services"> Service Collection</param>
+        /// <returns>Service Collection</returns>
+        public static IServiceCollection AddKukinTelemetry(this IServiceCollection services) {
+
+            services.AddApplicationInsightsTelemetry();
+
+            return services;
+        }
     }
 }

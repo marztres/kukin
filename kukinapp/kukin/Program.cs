@@ -21,6 +21,13 @@ namespace kukin
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                }).ConfigureLogging(
+                builder =>
+                {
+                    builder.AddApplicationInsights();
+                    builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                                     ("", LogLevel.Error);
+                }
+        );
     }
 }

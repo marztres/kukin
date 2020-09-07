@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>kukin</name>
+    </assembly>
+    <members>
+        <member name="M:kukin.Api.RecipeController.Get">
+            <summary>
+            Gets all recipes
+            </summary>
+            <returns> Recipes </returns>
+        </member>
+        <member name="M:kukin.Api.RecipeController.Config">
+            <summary>
+            Gets Recipes configuration
+            </summary>
+            <returns> All recipes configurations </returns>
+        </member>
+        <member name="M:kukin.Extensions.ApplicationBuilderExtensions.ConfigureKukinApp(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure Kukin middlewares
+            </summary>
+            <param name="app"> applicationbuilder service</param>
+            <param name="serviceProvider"> serviceProvider service</param>
+            <param name="env"> Enviroment Service </param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ApplicationBuilderExtensions.UseKukinRoutes(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configure kukin Routes
+            </summary>
+            <param name="app"> applicationbuilder service</param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ApplicationBuilderExtensions.UseKukinSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds Swagger middleware: Configure Kukin Api
+            </summary>
+            <param name="app"> applicationbuilder service</param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ApplicationBuilderExtensions.UseKukinCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds Cors Middleware with kukin policy
+            </summary>
+            <param name="app"> applicationbuilder service </param>
+            <returns></returns>
+        </member>
+        <member name="T:kukin.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Class for configure kukin services
+            </summary>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds Kukin Services
+            </summary>
+            <param name="services"> Service Collection  </param>
+            <param name="configuration"> Configuration Service</param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds kukin Swagger
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds Kukin Cors Policy
+            </summary>
+            <param name="services">Service Collection </param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinControllers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds controllers services
+            </summary>
+            <param name="services"> Service Collection</param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds Kukin Db Context
+            </summary>
+            <param name="services">Service Collection </param>
+            <param name="configuration">Configuration service </param>
+            <returns></returns>
+        </member>
+        <member name="M:kukin.Extensions.ServiceCollectionExtensions.AddKukinTelemetry(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds Azure Insights Service
+            </summary>
+            <param name="services"> Service Collection</param>
+            <returns>Service Collection</returns>
+        </member>
+    </members>
+</doc>

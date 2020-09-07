@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
 
 namespace kukin
@@ -20,25 +19,13 @@ namespace kukin
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddKukinCors();
-            services.AddSwaggerGen();
-            services.AddKukinControllers();
-            services.AddKukinDbContext(_configuration);
+            services.AddKukinServices(_configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            serviceProvider.MigrateAndSeedData();
-            app.UseRouting();
-            app.UseKukinCors();
-            app.UseKukinSwagger();
-            app.UseKukinRoutes();
+            app.ConfigureKukinApp(serviceProvider, env);
         }
     }
 }
