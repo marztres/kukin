@@ -1,4 +1,5 @@
-﻿using kukin.Data;
+﻿using AutoMapper;
+using kukin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,13 +21,13 @@ namespace kukin.Extensions
         /// <param name="services"> Service Collection  </param>
         /// <param name="configuration"> Configuration Service</param>
         /// <returns></returns>
-        public static IServiceCollection AddKukinServices(this IServiceCollection services, IConfiguration configuration) {
+        public static IServiceCollection AddKukinDependencies(this IServiceCollection services, IConfiguration configuration) {
             services.AddKukinCors();
             services.AddKukinControllers();
             services.AddKukinDbContext(configuration);
             services.AddKukinSwagger();
             services.AddKukinTelemetry();
-
+            
             return services;
         }
 
@@ -119,6 +120,6 @@ namespace kukin.Extensions
             services.AddApplicationInsightsTelemetry();
 
             return services;
-        }
+        }       
     }
 }

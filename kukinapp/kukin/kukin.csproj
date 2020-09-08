@@ -13,20 +13,16 @@
   <ItemGroup>
     <Folder Include="ClientApp\" />
     <Folder Include="Helpers\Swagger\" />
-    <Folder Include="Mapping\" />
     <Folder Include="Enums\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Models\Dtos\" />
     <Folder Include="Models\Constants\" />
-    <Folder Include="Repositories\Extensions\" />
-    <Folder Include="Services\Extensions\" />
-    <Folder Include="Services\Interfaces\" />
     <Folder Include="Services\Exceptions\" />
     <Folder Include="Services\Helpers\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.14.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
       <PrivateAssets>all</PrivateAssets>

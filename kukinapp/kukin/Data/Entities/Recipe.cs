@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace kukin.Data.Entities
 {
@@ -10,6 +11,12 @@ namespace kukin.Data.Entities
         public Guid RecipeId { get; set; }
         public string Name { get; }
         public bool Active { get; }
-        public List<RecipeIngredient> Ingredients { get; set; }
+        public List<RecipeIngredient> RecipeIngredient { get; set; }
+
+        [NotMapped]
+        public List<Ingredient> Ingredients { get {
+                return RecipeIngredient != null ? RecipeIngredient.Select(selector => selector.Ingredient).ToList() : new List<Ingredient>();
+            } 
+        }
     }
 }

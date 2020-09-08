@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kukin.Data;
 
 namespace kukin.Migrations
 {
     [DbContext(typeof(KukinDbContext))]
-    partial class KukinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200907053441_EntitiesVariableNames")]
+    partial class EntitiesVariableNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +76,9 @@ namespace kukin.Migrations
                         new
                         {
                             RecipeId = new Guid("d5f36d82-e0ac-49be-aa46-44acc8d1dec3"),
-                            CreatedAt = new DateTime(2020, 9, 7, 1, 4, 7, 888, DateTimeKind.Local).AddTicks(4028),
+                            CreatedAt = new DateTime(2020, 9, 7, 0, 34, 40, 794, DateTimeKind.Local).AddTicks(7953),
                             CreatedBy = "modelBuilder.seed",
-                            UpdatedAt = new DateTime(2020, 9, 7, 1, 4, 7, 888, DateTimeKind.Local).AddTicks(4052),
+                            UpdatedAt = new DateTime(2020, 9, 7, 0, 34, 40, 794, DateTimeKind.Local).AddTicks(7977),
                             UpdatedBy = "modelBuilder.seed"
                         });
                 });

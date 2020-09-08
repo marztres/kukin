@@ -10,6 +10,6 @@ namespace kukin.Data.Entities
         public Guid IngredientId { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
-        public List<RecipeIngredient> Recipes { get; set; }
+        public List<RecipeIngredient> IngredientRecipe { get; set; }
     }
 }

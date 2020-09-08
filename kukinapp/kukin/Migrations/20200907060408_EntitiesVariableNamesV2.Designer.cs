@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kukin.Data;
 
 namespace kukin.Migrations
 {
     [DbContext(typeof(KukinDbContext))]
-    partial class KukinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200907060408_EntitiesVariableNamesV2")]
+    partial class EntitiesVariableNamesV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

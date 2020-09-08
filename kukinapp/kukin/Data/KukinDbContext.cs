@@ -19,12 +19,12 @@ namespace kukin.Data
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasOne(pt => pt.Recipe)
-                .WithMany(p => p.Ingredients)
+                .WithMany(p => p.RecipeIngredient)
                 .HasForeignKey(pt => pt.RecipeId);
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasOne(pt => pt.Ingredient)
-                .WithMany(t => t.Recipes)
+                .WithMany(t => t.IngredientRecipe)
                 .HasForeignKey(pt => pt.IngredientId);
 
 
