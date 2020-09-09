@@ -17,7 +17,10 @@ namespace kukin.Repositories
 
         /// <inheritdoc />
         public Task<List<Recipe>> GetAsync() {
-            return _kukinDbContext.Recipes.ToListAsync();
+            return _kukinDbContext.Recipes
+                .Include(query => query.RecipeIngredient)
+                .ThenInclude(query => query.Ingredient)
+                .ToListAsync();
         }
     }
 }

@@ -8,8 +8,8 @@ namespace kukin.Models.Dtos
     public class RecipeDto
     {
         public Guid RecipeId { get; set; }
-        public string Name { get; }
-        public bool Active { get; }
+        public string Name { get; set; }
+        public bool Active { get; set; }
 
         public List<IngredientDto> Ingredients { get; }
     }

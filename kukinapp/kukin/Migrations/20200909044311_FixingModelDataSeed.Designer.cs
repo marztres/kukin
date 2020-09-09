@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kukin.Data;
 
 namespace kukin.Migrations
 {
     [DbContext(typeof(KukinDbContext))]
-    partial class KukinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200909044311_FixingModelDataSeed")]
+    partial class FixingModelDataSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,18 +48,6 @@ namespace kukin.Migrations
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredients");
-
-                    b.HasData(
-                        new
-                        {
-                            IngredientId = new Guid("0375633c-1e53-4309-ba08-e3f8517c1589"),
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedBy = "modelBuilder.seed",
-                            Name = "Pollo",
-                            UpdatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = "modelBuilder.seed"
-                        });
                 });
 
             modelBuilder.Entity("kukin.Data.Entities.Recipe", b =>
@@ -66,16 +56,10 @@ namespace kukin.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -92,10 +76,8 @@ namespace kukin.Migrations
                         new
                         {
                             RecipeId = new Guid("d5f36d82-e0ac-49be-aa46-44acc8d1dec3"),
-                            Active = true,
                             CreatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = "modelBuilder.seed",
-                            Name = "Pollo al curry",
                             UpdatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = "modelBuilder.seed"
                         });
@@ -114,13 +96,6 @@ namespace kukin.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("RecipeIngredient");
-
-                    b.HasData(
-                        new
-                        {
-                            IngredientId = new Guid("0375633c-1e53-4309-ba08-e3f8517c1589"),
-                            RecipeId = new Guid("d5f36d82-e0ac-49be-aa46-44acc8d1dec3")
-                        });
                 });
 
             modelBuilder.Entity("kukin.Data.Entities.RecipeIngredient", b =>

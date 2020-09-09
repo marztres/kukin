@@ -7,8 +7,8 @@ namespace kukin.Mapping
     public class EntityMappers : Profile
     {
         public EntityMappers() {
-            CreateMap<Recipe, RecipeDto>();
-            CreateMap<Ingredient, IngredientDto>();
+            CreateMap<Recipe, RecipeDto>().ReverseMap();
+            CreateMap<Ingredient, IngredientDto>().ReverseMap();
         }
     }
 }

@@ -10,8 +10,8 @@ using kukin.Data;
 namespace kukin.Migrations
 {
     [DbContext(typeof(KukinDbContext))]
-    [Migration("20200907053441_EntitiesVariableNames")]
-    partial class EntitiesVariableNames
+    [Migration("20200909051010_ModifyRecipeFields_fixingNameAndActive")]
+    partial class ModifyRecipeFields_fixingNameAndActive
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,10 +56,16 @@ namespace kukin.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -76,9 +82,11 @@ namespace kukin.Migrations
                         new
                         {
                             RecipeId = new Guid("d5f36d82-e0ac-49be-aa46-44acc8d1dec3"),
-                            CreatedAt = new DateTime(2020, 9, 7, 0, 34, 40, 794, DateTimeKind.Local).AddTicks(7953),
+                            Active = false,
+                            CreatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedBy = "modelBuilder.seed",
-                            UpdatedAt = new DateTime(2020, 9, 7, 0, 34, 40, 794, DateTimeKind.Local).AddTicks(7977),
+                            Name = "Pollo al curry",
+                            UpdatedAt = new DateTime(2020, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = "modelBuilder.seed"
                         });
                 });

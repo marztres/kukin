@@ -37,23 +37,6 @@ namespace kukin.Api
         public async Task<IActionResult> Get()
         {
             return Ok(await _recipeService.GetAsync());
-        }
-
-        ///// <summary>
-        ///// Gets Recipes configuration
-        ///// </summary>
-        ///// <returns> All recipes configurations </returns>
-        //[HttpGet("config")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public async Task<IActionResult> Config()
-        //{
-        //    List<string> kukinConfig = new List<string>();
-        //    kukinConfig.Add(_configuration["KukinConfig:version"]);
-        //    kukinConfig.Add(_configuration["KukinConfig:enableLog"]);
-        //    kukinConfig.Add(_configuration["KukinConfig:kukinSecure"]);
-
-        //    return Ok(await Task.FromResult(kukinConfig));
-        //}
+        }       
     }
 }

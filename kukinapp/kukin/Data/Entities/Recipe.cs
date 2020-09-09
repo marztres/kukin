@@ -9,8 +9,8 @@ namespace kukin.Data.Entities
     public class Recipe : BaseEntity
     {        
         public Guid RecipeId { get; set; }
-        public string Name { get; }
-        public bool Active { get; }
+        public string Name { get; set; }
+        public bool Active { get; set; }
         public List<RecipeIngredient> RecipeIngredient { get; set; }
 
         [NotMapped]

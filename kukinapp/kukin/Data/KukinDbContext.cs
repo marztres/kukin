@@ -14,14 +14,17 @@ namespace kukin.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Compound key entity RecipeIngredient
             modelBuilder.Entity<RecipeIngredient>()
                 .HasKey(t => new { t.IngredientId, t.RecipeId });
 
+            //Relation RecipeIngredient with Recipe Entity
             modelBuilder.Entity<RecipeIngredient>()
                 .HasOne(pt => pt.Recipe)
                 .WithMany(p => p.RecipeIngredient)
                 .HasForeignKey(pt => pt.RecipeId);
 
+            //Relation RecipeIngredient with Ingredient Entity
             modelBuilder.Entity<RecipeIngredient>()
                 .HasOne(pt => pt.Ingredient)
                 .WithMany(t => t.IngredientRecipe)
