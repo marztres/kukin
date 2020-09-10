@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using kukin.Data;
+using kukin.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
 
 namespace kukin.Extensions
 {
@@ -87,10 +89,13 @@ namespace kukin.Extensions
         /// <returns></returns>
         public static IServiceCollection AddKukinControllers(this IServiceCollection services)
         {
-            services.AddControllers()
-                      .ConfigureApiBehaviorOptions(config => {
-                          config.SuppressMapClientErrors = true;
-                      });
+            services.AddControllers( options => {
+                options.Filters.Add<ApiExceptionFilter>();
+            })
+                .ConfigureApiBehaviorOptions(config => {
+                    config.SuppressMapClientErrors = true;
+                })
+                .AddNewtonsoftJson();
 
             return services;
         }
