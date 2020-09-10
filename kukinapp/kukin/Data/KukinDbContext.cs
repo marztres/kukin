@@ -14,6 +14,8 @@ namespace kukin.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("kukin");
+
             //Compound key entity RecipeIngredient
             modelBuilder.Entity<RecipeIngredient>()
                 .HasKey(t => new { t.IngredientId, t.RecipeId });
@@ -29,7 +31,6 @@ namespace kukin.Data
                 .HasOne(pt => pt.Ingredient)
                 .WithMany(t => t.IngredientRecipe)
                 .HasForeignKey(pt => pt.IngredientId);
-
 
             modelBuilder.SeedData();
         }

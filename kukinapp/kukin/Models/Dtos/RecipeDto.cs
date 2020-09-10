@@ -11,6 +11,6 @@ namespace kukin.Models.Dtos
         public string Name { get; set; }
         public bool Active { get; set; }
 
-        public List<IngredientDto> Ingredients { get; }
+        public List<IngredientDto> Ingredients { get; set; }
     }
 }

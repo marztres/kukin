@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using kukin.Data.Entities;
 using kukin.Models.Dtos;
 using kukin.Repositories.Interfaces;
 using kukin.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace kukin.Services
